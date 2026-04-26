@@ -1,43 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Puntly – Support</title>
   <style>
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
-      max-width: 680px; 
-      margin: 40px auto; 
-      padding: 0 20px; 
-      color: #222; 
-      line-height: 1.6; 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0 20px 60px;
+      max-width: 680px;
+      margin: 0 auto;
     }
-    h1 { color: #111; margin-bottom: 1.5em; }
-    h2 { margin-top: 2em; color: #333; }
-    section { margin-bottom: 2em; }
-    ol, ul { padding-left: 1.5em; }
-    dt { font-weight: 600; margin-top: 0.8em; }
-    dd { margin-left: 0; margin-bottom: 0.8em; color: #555; }
-    a { color: #0066cc; }
-    nav { margin-bottom: 2em; }
-    nav a { margin-right: 1.5em; }
+
+    header {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid #1a1a1a;
+      margin-bottom: 36px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #7ED957;
+      margin-bottom: 6px;
+    }
+
+    header p { color: #666; font-size: 14px; }
+
+    section { margin-bottom: 40px; }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7ED957;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin: 20px 0 8px;
+    }
+
+    p { color: #ccc; margin-bottom: 10px; }
+
+    ol {
+      list-style: none;
+      counter-reset: steps;
+      margin-bottom: 10px;
+    }
+
+    ol li {
+      counter-increment: steps;
+      color: #ccc;
+      padding: 7px 0 7px 32px;
+      position: relative;
+      border-bottom: 1px solid #111;
+    }
+
+    ol li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      width: 22px;
+      height: 22px;
+      background: #7ED957;
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 9px;
+    }
+
+    .faq { margin-bottom: 12px; }
+
+    .faq dt {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .faq dd {
+      color: #999;
+      margin-left: 0;
+    }
+
+    a { color: #7ED957; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .contact-box {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .contact-box p { margin-bottom: 6px; }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #1a1a1a;
+      color: #444;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/">← Back to Puntly</a>
-  </nav>
 
-  <h1>Support</h1>
+  <header>
+    <h1>Puntly</h1>
+    <p>Support</p>
+  </header>
 
-  <section id="getting-started">
+  <section>
     <h2>Getting Started</h2>
-    
+
     <h3>Creating a club</h3>
     <ol>
       <li>Tap "Create club" on the welcome screen</li>
-      <li>Give it a name</li>
+      <li>Give your club a name</li>
       <li>Share the invite code with your group</li>
     </ol>
 
@@ -49,34 +143,53 @@
 
     <h3>Adding a bet</h3>
     <ol>
-      <li>Tap the camera button to photograph a bet slip (we'll read the details automatically)</li>
-      <li>Or use "Enter manually"</li>
+      <li>Tap the camera button to photograph a bet slip — we'll read the details automatically</li>
+      <li>Review and confirm, or adjust any fields</li>
+      <li>Or tap "Enter manually" to fill in the details yourself</li>
     </ol>
   </section>
 
-  <section id="faqs">
+  <section>
     <h2>FAQs</h2>
     <dl>
-      <dt>Can I be in multiple clubs?</dt>
-      <dd>Yes — tap your club name at the top of the screen to switch between clubs.</dd>
-
-      <dt>What's a bonus bet?</dt>
-      <dd>When adding a bet, select "Bonus bet" if the stake came from a bookmaker promotion rather than your own money. P&L is calculated accordingly (no stake returned on a win).</dd>
-
-      <dt>What's a club bet?</dt>
-      <dd>A bet attributed to the club as a whole rather than an individual member — useful for syndicate bets.</dd>
-
-      <dt>How do I leave a club?</dt>
-      <dd>Long-press your name in the Club tab and select "Leave club". Your bets remain in the club history.</dd>
-
-      <dt>I'm not receiving notifications</dt>
-      <dd>Check that notifications are enabled for Puntly in your iPhone Settings → Notifications.</dd>
+      <div class="faq">
+        <dt>Can I be in multiple clubs?</dt>
+        <dd>Yes — tap your club name at the top of the screen to switch between clubs.</dd>
+      </div>
+      <div class="faq">
+        <dt>What's a bonus bet?</dt>
+        <dd>Select "Bonus bet" if the stake came from a bookmaker promotion. P&amp;L is calculated accordingly — the stake is not returned on a win.</dd>
+      </div>
+      <div class="faq">
+        <dt>What's a club bet?</dt>
+        <dd>A bet attributed to the club as a whole rather than an individual member — useful for syndicate wagers.</dd>
+      </div>
+      <div class="faq">
+        <dt>How do I leave a club?</dt>
+        <dd>Go to the Club tab, tap the three-dot menu, and select "Leave club". Your bets remain in the club history.</dd>
+      </div>
+      <div class="faq">
+        <dt>I'm not receiving notifications.</dt>
+        <dd>Check that notifications are enabled for Puntly in iPhone Settings → Notifications.</dd>
+      </div>
+      <div class="faq">
+        <dt>How do I report a user or content?</dt>
+        <dd>Long-press any message or comment to reveal the Report and Block options.</dd>
+      </div>
     </dl>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Can't find what you're looking for? <a href="mailto:apps@shinersapps.com">Email us</a></p>
+  <section>
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <p>Can't find what you're looking for?</p>
+      <p><a href="mailto:apps@shinersapps.com">apps@shinersapps.com</a></p>
+    </div>
   </section>
+
+  <footer>
+    &copy; 2026 Puntly. All rights reserved.
+  </footer>
+
 </body>
 </html>
